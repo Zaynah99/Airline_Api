@@ -43,11 +43,5 @@ public class PassengerController {
         return new ResponseEntity(passengerRepository.findAll(), HttpStatus.CREATED);
     }
 
-//    DELETE PASSENGER
-    @DeleteMapping (value = "/{id}")
-    public ResponseEntity<Long> deletePassenger(@PathVariable Long id){
-        passengerService.deletePassenger(id);
-        return new ResponseEntity<>(id, HttpStatus.OK);
-    }
 
 }

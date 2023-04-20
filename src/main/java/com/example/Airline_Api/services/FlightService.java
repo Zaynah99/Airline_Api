@@ -31,7 +31,10 @@ public class FlightService {
     }
 
 
+    public void deleteFlight(Long id) {
+        flightRepository.deleteById(id);
     }
+}
 
 
 
