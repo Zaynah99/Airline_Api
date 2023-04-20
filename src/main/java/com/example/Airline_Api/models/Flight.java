@@ -2,11 +2,13 @@ package com.example.Airline_Api.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity(name = "flights") //creates table
 public class Flight { //POJO
 
-    @JsonIgnoreProperties({"flights"})
-    @ManyToMany(mappedBy = "flights")
+
 
 //    PROPERTIES
     @Id // creates unique identifier
@@ -26,12 +28,25 @@ public class Flight { //POJO
     @Column (name = "departure_time")
     private double departureTime;
 
+
+    @JsonIgnoreProperties({"flights"})
+    @ManyToMany
+    @JoinTable(
+            name = "passengers_flights",
+            joinColumns = @JoinColumn(name = "passengers_id"),
+            inverseJoinColumns = @JoinColumn( name = "flight_id")
+    )
+    private List<Passenger> passengers;
+
+
+
 //    CONSTRUCTOR
     public Flight (String destination, int capacity, double departureDate, double departureTime){
         this.destination = destination;
         this.capacity = capacity;
         this.departureDate = departureDate;
         this.departureTime = departureTime;
+        this.passengers = new ArrayList<>();
     }
 
 //    DEFAULT CONSTRUCTOR

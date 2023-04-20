@@ -2,26 +2,28 @@ package com.example.Airline_Api.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity (name = "passengers") //creates table
 public class Passenger {//POJO
-
-    @ManyToMany
-    @JsonIgnoreProperties({"passengers"})
-    @JoinTable(
-            name = "passengers_flights",
-            joinColumns = @JoinColumn(name = "passengers_id"),
-            inverseJoinColumns = @JoinColumn (name = "flights_id")
-
-    )
 
 //  PROPERTIES
     @Id //creates unique identifier
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     @Column
     private String name;
 
     @Column
     private int phoneNumber;
+
+    @JsonIgnoreProperties({"passengers"})
+    @ManyToMany(mappedBy = "passengers")
+    private List<Flight> flights;
+
+
 
 //    JOIN TABLE??
 
@@ -29,6 +31,7 @@ public class Passenger {//POJO
     public Passenger(String name, int phoneNumber){
         this.name = name;
         this.phoneNumber = phoneNumber;
+        this.flights = new ArrayList<>();
     }
 
 
