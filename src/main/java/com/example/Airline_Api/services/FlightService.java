@@ -17,40 +17,21 @@ public class FlightService {
     FlightRepository flightRepository;
 
     @Autowired
-    PassengerRepository passengerRepository;
+    PassengerService passengerService;
 
 
-////    SAVING FLIGHT
-//    public void saveFlight(Flight flight){
-//        flightRepository.save(flight);
-//    }
 
-//    FIND FLIGHT
-    public Flight findFlight(Long id){
-        return flightRepository.findById(id).get();
+    public Flight saveFlight(FlightDTO flightDTO) {
+        Flight flight = new Flight(flightDTO.getDestination(), flightDTO.getCapacity(), flightDTO.getDepartureDate(), flightDTO.getDepartureTime());
+        for (Long passengerId :flightDTO.getPassengerIds()){
+            Passenger passenger = passengerService.findPassenger(passengerId);
+            flight.addPassenger(passenger);
+        }
+        return flightRepository.save(flight);
     }
 
-//    FIND ALL FLIGHTS
-    public List<Flight> findAllFlights(){
-        return flightRepository.findAll();
+
     }
 
-//    DELETE FLIGHTS
-
-//    public void deleteFlight(Long id) {
-//        Flight flight = flightRepository.findById(id).get();
-//        for (Passenger passenger : flight.getPassengers()){
-//            passenger.removeFlight(flight);
-//            PassengerRepository.save(passenger);
-//        }
-//        flightRepository.deleteById(id);
-//    }
 
 
-//    public Passenger savePassenger (FlightDTO flightDTO) {
-////     CREATE PASSENGER OBJECT FROM DTO
-//        Passenger passenger = new Passenger(FlightDTO.getName(), FlightDTO.getPhoneNumber());
-//    }
-
-
-}

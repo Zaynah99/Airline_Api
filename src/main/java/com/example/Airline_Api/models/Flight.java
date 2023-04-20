@@ -23,10 +23,10 @@ public class Flight { //POJO
     private int capacity;
 
     @Column (name = "departure_date")
-    private double departureDate;
+    private String departureDate;
 
     @Column (name = "departure_time")
-    private double departureTime;
+    private String departureTime;
 
 
     @JsonIgnoreProperties({"flights"})
@@ -41,7 +41,7 @@ public class Flight { //POJO
 
 
 //    CONSTRUCTOR
-    public Flight (String destination, int capacity, double departureDate, double departureTime){
+    public Flight (String destination, int capacity, String departureDate, String departureTime){
         this.destination = destination;
         this.capacity = capacity;
         this.departureDate = departureDate;
@@ -72,20 +72,33 @@ public class Flight { //POJO
         this.capacity = capacity;
     }
 
-    public double getDepartureDate() {
+    public String getDepartureDate() {
         return departureDate;
     }
 
-    public void setDepartureDate(double departureDate) {
+    public void setDepartureDate(String departureDate) {
         this.departureDate = departureDate;
     }
 
-    public double getDepartureTime() {
+    public String getDepartureTime() {
         return departureTime;
     }
 
-    public void setDepartureTime(double departureTime) {
+    public void setDepartureTime(String departureTime) {
         this.departureTime = departureTime;
     }
 
+    public List<Passenger> getPassengers() {
+        return passengers;
+    }
+
+    public void setPassengers(List<Passenger> passengers) {
+        this.passengers = passengers;
+    }
+
+    public void removePassenger(Passenger passenger) {
+    }
+
+    public void addPassenger(Passenger passenger) {
+    }
 }

@@ -57,4 +57,27 @@ public class Passenger {//POJO
     public void setPhoneNumber(int phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
+    public List<Flight> getFlights() {
+        return flights;
+    }
+
+    public void setFlights(List<Flight> flights) {
+        this.flights = flights;
+    }
+
+
+
+
+
+//
+//    //    ADDING PASSENGER TO LIST OF PASSENGERS
+//    public void addPassenger(Passenger passenger){
+//        this.passengers.add(passenger);
+//    }
+//
+//    //    REMOVING PASSENGERS
+//    public void removePassenger(Passenger passenger){
+//        this.passengers.remove(passenger);
+//    }
 }

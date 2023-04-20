@@ -8,12 +8,12 @@ public class FlightDTO {//POJO
 //    PROPERTIES
     private String destination;
     private int capacity;
-    private double departureDate;
-    private double departureTime;
+    private String departureDate;
+    private String departureTime;
     private List<Long> passengerIds;
 
 //    CONSTRUCTOR
-    public FlightDTO (String destination, int capacity, double departureDate, double departureTime, List passengerIds){
+    public FlightDTO (String destination, int capacity, String departureDate, String departureTime, List passengerIds){
         this.destination = destination;
         this.capacity = capacity;
         this.departureDate = departureDate;
@@ -44,19 +44,19 @@ public class FlightDTO {//POJO
         this.capacity = capacity;
     }
 
-    public double getDepartureDate() {
+    public String getDepartureDate() {
         return departureDate;
     }
 
-    public void setDepartureDate(double departureDate) {
-        this.departureDate = departureDate;
+    public String setDepartureDate(String departureDate) {
+       return this.departureDate = departureDate;
     }
 
-    public double getDepartureTime() {
+    public String getDepartureTime() {
         return departureTime;
     }
 
-    public void setDepartureTime(double departureTime) {
+    public void setDepartureTime(String departureTime) {
         this.departureTime = departureTime;
     }
 
