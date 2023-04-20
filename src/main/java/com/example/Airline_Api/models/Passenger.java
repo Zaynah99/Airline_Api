@@ -24,16 +24,12 @@ public class Passenger {//POJO
     private List<Flight> flights;
 
 
-
-//    JOIN TABLE??
-
 //    CONSTRUCTOR
     public Passenger(String name, int phoneNumber){
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.flights = new ArrayList<>();
     }
-
 
 //    DEFAULT CONSTRUCTOR
     public Passenger(){
@@ -66,18 +62,4 @@ public class Passenger {//POJO
         this.flights = flights;
     }
 
-
-
-
-
-//
-//    //    ADDING PASSENGER TO LIST OF PASSENGERS
-//    public void addPassenger(Passenger passenger){
-//        this.passengers.add(passenger);
-//    }
-//
-//    //    REMOVING PASSENGERS
-//    public void removePassenger(Passenger passenger){
-//        this.passengers.remove(passenger);
-//    }
 }
