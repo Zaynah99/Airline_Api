@@ -1,9 +1,8 @@
 package com.example.Airline_Api.controllers;
-
-
 import com.example.Airline_Api.models.Passenger;
 import com.example.Airline_Api.repositories.FlightRepository;
 import com.example.Airline_Api.repositories.PassengerRepository;
+import com.example.Airline_Api.services.PassengerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +20,9 @@ public class PassengerController {
 
     @Autowired
     FlightRepository flightRepository;
+
+    @Autowired
+    PassengerService passengerService;
 
 //    GET ALL PASSENGERS
     @GetMapping
@@ -41,11 +43,10 @@ public class PassengerController {
         return new ResponseEntity(passengerRepository.findAll(), HttpStatus.CREATED);
     }
 
-
-
+//    DELETE PASSENGER
     @DeleteMapping (value = "/{id}")
-    public ResponseEntity<Long> deleteEstate(@PathVariable Long id){
-        estateService.deleteEstate(id);
+    public ResponseEntity<Long> deletePassenger(@PathVariable Long id){
+        passengerService.deletePassenger(id);
         return new ResponseEntity<>(id, HttpStatus.OK);
     }
 
