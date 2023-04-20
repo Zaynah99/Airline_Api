@@ -26,42 +26,41 @@ public class DataLoader implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
-        Passenger natashaPassenger = new Passenger("Natasha", 1234567919);
-        passengerRepository.save(natashaPassenger);
+        Passenger passenger1 = new Passenger("Zaynah", 1234567919);
+        passengerRepository.save(passenger1);
 
-        Flight englandFlight = new Flight("England", 200, "21/04/23", "12pm");
-        flightRepository.save(englandFlight);
+        Flight Australia = new Flight("Australia", 350, "17/03/23", "9am");
+        flightRepository.save(Australia);
 
-        Flight spainFlight = new Flight("Spain", 400, "09/05/23", "1pm");
-        flightRepository.save(spainFlight);
+        Flight Indonesia = new Flight("Indonesia", 900, "21/05/25", "10pm");
+        flightRepository.save(Indonesia);
 
 
-        Passenger johnPassenger = new Passenger("John", 1234567919);
-        passengerRepository.save(johnPassenger);
+        Passenger passenger2 = new Passenger("Anna", 1234567919);
+        passengerRepository.save(passenger2);
 
-        Flight dubaiFlight = new Flight("Dubai", 1200, "26/04/23", "8am");
+        Flight dubaiFlight = new Flight("Tuvalu", 120, "19/09/23", "7pm");
         flightRepository.save(dubaiFlight);
 
-        Flight franceFlight = new Flight("France", 600, "09/06/23", "7am");
+        Flight franceFlight = new Flight("Brazil", 700, "10/08/25", "10am");
         flightRepository.save(franceFlight);
 
 
-        Passenger samPassenger = new Passenger("Sam", 1234567919);
-        passengerRepository.save(samPassenger);
+        Passenger passenger3 = new Passenger("Zsolt", 1234567919);
+        passengerRepository.save(passenger3);
 
-        Flight japanFlight = new Flight("Japan", 2000, "10/09/23", "9am");
-        flightRepository.save(japanFlight);
+        Flight Las_Vegas = new Flight("Las Vegas", 780, "10/10/23", "1pm");
+        flightRepository.save(Las_Vegas);
 
-        englandFlight.addPassenger(natashaPassenger);
-        japanFlight.addPassenger(natashaPassenger);
-        spainFlight.addPassenger(johnPassenger);
-        spainFlight.addPassenger(samPassenger);
+        Australia.addPassenger(passenger1);
+        Las_Vegas.addPassenger(passenger1);
+        Indonesia.addPassenger(passenger2);
+        Indonesia.addPassenger(passenger3);
+        Las_Vegas.addPassenger(passenger2);
 
-        japanFlight.addPassenger(johnPassenger);
-
-        flightRepository.save(englandFlight);
-        flightRepository.save(spainFlight);
-        flightRepository.save(japanFlight);
+        flightRepository.save(Indonesia);
+        flightRepository.save(Australia);
+        flightRepository.save(Indonesia);
     }
 
 }
