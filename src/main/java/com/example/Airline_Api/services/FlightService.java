@@ -1,6 +1,7 @@
 package com.example.Airline_Api.services;
 
 import com.example.Airline_Api.models.Flight;
+import com.example.Airline_Api.models.FlightDTO;
 import com.example.Airline_Api.models.Passenger;
 import com.example.Airline_Api.repositories.FlightRepository;
 import com.example.Airline_Api.repositories.PassengerRepository;
@@ -36,16 +37,20 @@ public class FlightService {
 
 //    DELETE FLIGHTS
 
-    public void deleteFlight(Long id) {
-        Flight flight = flightRepository.findById(id).get();
-        for (Passenger passenger : flight.getPassengers()){
-            passenger.removeFlight(flight);
-            PassengerRepository.save(passenger);
-        }
-        flightRepository.deleteById(id);
-    }
+//    public void deleteFlight(Long id) {
+//        Flight flight = flightRepository.findById(id).get();
+//        for (Passenger passenger : flight.getPassengers()){
+//            passenger.removeFlight(flight);
+//            PassengerRepository.save(passenger);
+//        }
+//        flightRepository.deleteById(id);
+//    }
 
 
+//    public Passenger savePassenger (FlightDTO flightDTO) {
+////     CREATE PASSENGER OBJECT FROM DTO
+//        Passenger passenger = new Passenger(FlightDTO.getName(), FlightDTO.getPhoneNumber());
+//    }
 
 
 }

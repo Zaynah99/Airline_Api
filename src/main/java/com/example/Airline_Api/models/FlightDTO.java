@@ -26,7 +26,8 @@ public class FlightDTO {//POJO
 
     }
 
-//    GETTERS AND SETTERS
+
+    //    GETTERS AND SETTERS
     public String getDestination() {
         return destination;
     }

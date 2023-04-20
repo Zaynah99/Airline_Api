@@ -87,4 +87,5 @@ public class Flight { //POJO
     public void setDepartureTime(double departureTime) {
         this.departureTime = departureTime;
     }
+
 }
